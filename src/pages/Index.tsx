@@ -84,31 +84,33 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Stats strip — minimal */}
+      {/* Stats strip */}
       <section className="border-y border-border bg-card">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 divide-border sm:grid-cols-4 sm:divide-x">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-border sm:grid-cols-4">
           {[
             { k: "200+", v: "Projects completed" },
             { k: "10+", v: "Towns served" },
             { k: "5★", v: "Average rating" },
             { k: "100%", v: "Licensed & insured" },
           ].map((s) => (
-            <div key={s.v} className="px-6 py-10 text-center">
-              <div className="text-3xl font-bold text-accent sm:text-4xl">{s.k}</div>
-              <div className="mt-2 text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">{s.v}</div>
+            <div key={s.v} className="bg-card px-6 py-8 text-center">
+              <div className="text-4xl font-bold text-accent sm:text-5xl">{s.k}</div>
+              <div className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">{s.v}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Services — clean editorial rows */}
-      <section id="services" className="py-24 sm:py-32">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <div className="mx-auto mb-16 max-w-2xl text-center">
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-accent">What we do</p>
-            <h2 className="text-4xl font-bold leading-[1.1] sm:text-5xl">Built For The Way You Live.</h2>
-            <p className="mt-5 text-lg leading-8 text-muted-foreground">
-              Five core services. One crew. From first sketch to final walkthrough.
+      {/* Services - editorial row layout */}
+      <section id="services" className="bg-background py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mb-14 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent">What we do</p>
+              <h2 className="text-4xl font-bold leading-tight sm:text-5xl">Built For The Way You Live.</h2>
+            </div>
+            <p className="max-w-md text-muted-foreground md:text-right">
+              Five core services. One crew that handles your project from first sketch to final walkthrough.
             </p>
           </div>
 
@@ -116,51 +118,49 @@ const Index = () => {
             {services.map((service, i) => (
               <article
                 key={service.title}
-                className="group grid grid-cols-[3rem_1fr_auto] items-center gap-x-6 border-b border-border py-7 transition sm:grid-cols-[4rem_3rem_1fr_auto] sm:gap-x-8 sm:py-8"
+                className="group grid grid-cols-[auto_1fr] items-start gap-x-6 gap-y-3 border-b border-border py-8 transition hover:bg-card sm:grid-cols-[6rem_auto_1fr_auto] sm:items-center sm:gap-x-8 sm:py-10"
               >
-                <div className="font-mono text-sm font-medium text-muted-foreground sm:text-base">
+                <div className="font-mono text-3xl font-bold text-accent sm:text-4xl">
                   0{i + 1}
                 </div>
-                <div className="flex h-10 w-10 items-center justify-center rounded-full text-accent transition group-hover:bg-accent/10 sm:h-12 sm:w-12">
-                  <service.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-full border border-border bg-card text-accent transition group-hover:border-accent group-hover:bg-accent group-hover:text-accent-foreground sm:h-16 sm:w-16">
+                  <service.icon className="h-6 w-6 sm:h-7 sm:w-7" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold sm:text-2xl">{service.title}</h3>
-                  <p className="mt-1.5 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base">{service.text}</p>
+                <div className="col-span-2 sm:col-span-1">
+                  <h3 className="text-2xl font-semibold sm:text-3xl">{service.title}</h3>
+                  <p className="mt-2 max-w-2xl leading-7 text-muted-foreground">{service.text}</p>
                 </div>
-                <ArrowRight className="hidden h-5 w-5 text-muted-foreground/40 transition group-hover:translate-x-1 group-hover:text-accent sm:block" />
+                <ArrowRight className="hidden h-6 w-6 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-accent sm:block" />
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About — simple two column */}
-      <section id="about" className="border-t border-border bg-card py-24 sm:py-32">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8">
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-center lg:gap-20">
-            <div className="grid grid-cols-2 gap-3">
-              <img src={bathroomImage} alt="Bathroom remodel" className="aspect-[3/4] w-full rounded-md object-cover" loading="lazy" />
-              <div className="grid gap-3 pt-12">
-                <img src={livingRoom} alt="Living room remodel" className="aspect-square w-full rounded-md object-cover" loading="lazy" />
-                <img src={carpentryImage} alt="Custom carpentry" className="aspect-square w-full rounded-md object-cover" loading="lazy" />
+      {/* About + Values - asymmetric image grid */}
+      <section id="about" className="bg-card py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div className="grid grid-cols-2 gap-4">
+              <img src={bathroomImage} alt="Bathroom remodel" className="aspect-[3/4] w-full rounded-lg object-cover shadow-crafted" loading="lazy" />
+              <div className="grid gap-4 pt-10">
+                <img src={livingRoom} alt="Living room remodel" className="aspect-square w-full rounded-lg object-cover shadow-soft" loading="lazy" />
+                <img src={carpentryImage} alt="Custom carpentry" className="aspect-square w-full rounded-lg object-cover shadow-soft" loading="lazy" />
               </div>
             </div>
             <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-accent">About TMD</p>
-              <h2 className="text-4xl font-bold leading-[1.1] sm:text-5xl">Local Crew. High Standards. Built Around Trust.</h2>
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent">About TMD</p>
+              <h2 className="text-4xl font-bold leading-tight sm:text-5xl">Local Crew. High Standards. Built Around Trust.</h2>
               <p className="mt-6 text-lg leading-8 text-muted-foreground">
                 TMD Remodeling is a locally owned home improvement company serving the North Shore and greater Boston. Modern design, durable construction, and a smooth experience from quote to keys.
               </p>
-              <ul className="mt-10 space-y-6">
+              <ul className="mt-8 space-y-4">
                 {values.map((v) => (
                   <li key={v.title} className="flex gap-4">
-                    <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-accent/15">
-                      <Check className="h-3.5 w-3.5 text-accent" />
-                    </div>
+                    <Check className="mt-1 h-5 w-5 flex-shrink-0 text-accent" />
                     <div>
                       <div className="font-semibold">{v.title}</div>
-                      <p className="mt-1 leading-7 text-muted-foreground">{v.text}</p>
+                      <p className="mt-1 text-muted-foreground">{v.text}</p>
                     </div>
                   </li>
                 ))}
@@ -170,64 +170,69 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Service area — minimal chips */}
-      <section className="py-24 sm:py-28">
-        <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-accent">Where we work</p>
-          <h2 className="text-4xl font-bold leading-[1.1] sm:text-5xl">Serving The North Shore & Greater Boston.</h2>
-          <div className="mt-10 flex flex-wrap justify-center gap-2">
+      {/* Service area - simple map-style chips */}
+      <section className="bg-background py-20 sm:py-24">
+        <div className="mx-auto max-w-5xl px-5 text-center sm:px-8">
+          <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent">Where we work</p>
+          <h2 className="text-4xl font-bold leading-tight sm:text-5xl">Serving The North Shore & Greater Boston</h2>
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
             {areas.map((area) => (
-              <span key={area} className="inline-flex items-center gap-1.5 rounded-full border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition hover:border-accent hover:text-accent">
-                <MapPin className="h-3.5 w-3.5" /> {area}
+              <span key={area} className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold transition hover:border-accent hover:text-accent">
+                <MapPin className="h-4 w-4 text-accent" /> {area}
               </span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA — centered, clean */}
-      <section id="contact" className="border-t border-border bg-primary py-24 text-primary-foreground sm:py-32">
-        <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
-          <div className="mb-6 flex items-center justify-center gap-1 text-accent">
-            {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-accent" />)}
+      {/* Contact - split panel */}
+      <section id="contact" className="bg-primary py-20 text-primary-foreground sm:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="grid overflow-hidden rounded-lg border border-primary-foreground/15 bg-primary-foreground/5 shadow-crafted backdrop-blur lg:grid-cols-2">
+            <div className="p-10 sm:p-12">
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent">Get in touch</p>
+              <h2 className="text-4xl font-bold leading-tight sm:text-5xl">Let's Talk About Your Next Project.</h2>
+              <p className="mt-6 text-lg leading-8 text-primary-foreground/82">
+                Tell us what you want to build, remodel, or restore. We'll walk through it with you and put together an honest plan.
+              </p>
+              <div className="mt-8 flex items-center gap-1 text-accent">
+                {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-accent" />)}
+                <span className="ml-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground/70">5-star rated</span>
+              </div>
+            </div>
+            <div className="border-t border-primary-foreground/15 bg-background/40 p-10 sm:p-12 lg:border-l lg:border-t-0">
+              <div className="mb-6 flex items-center gap-3">
+                <img src={tmdLogo} alt="TMD Remodeling logo" className="h-14 w-auto object-contain" />
+                <div>
+                  <div className="text-sm font-semibold uppercase tracking-[0.18em] text-primary-foreground/60">TMD Remodeling</div>
+                  <div className="text-lg font-semibold">Build · Remodel · Restore</div>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <Button asChild variant="hero" size="xl" className="w-full justify-between">
+                  <a href="tel:6174802895">(617) 480-2895 <Phone /></a>
+                </Button>
+                <Button asChild variant="subtle" size="xl" className="w-full justify-between">
+                  <a href="tel:8574885197">(857) 488-5197 <Phone /></a>
+                </Button>
+                <Button asChild variant="subtle" size="xl" className="w-full justify-between">
+                  <a href="mailto:tmdremodeling0227@gmail.com">tmdremodeling0227@gmail.com <Mail /></a>
+                </Button>
+                <Button asChild variant="subtle" size="xl" className="w-full justify-between">
+                  <Link to="/reviews">Leave A 5-Star Review <MessageSquareHeart /></Link>
+                </Button>
+              </div>
+            </div>
           </div>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-accent">Get in touch</p>
-          <h2 className="text-4xl font-bold leading-[1.1] sm:text-5xl">Let's Talk About Your Next Project.</h2>
-          <p className="mt-6 text-lg leading-8 text-primary-foreground/75">
-            Tell us what you want to build, remodel, or restore. We'll walk through it and put together an honest plan.
-          </p>
-          <div className="mx-auto mt-10 grid max-w-xl gap-3 sm:grid-cols-2">
-            <Button asChild variant="hero" size="xl" className="justify-center">
-              <a href="tel:6174802895"><Phone /> (617) 480-2895</a>
-            </Button>
-            <Button asChild variant="subtle" size="xl" className="justify-center">
-              <a href="tel:8574885197"><Phone /> (857) 488-5197</a>
-            </Button>
-            <Button asChild variant="subtle" size="xl" className="justify-center sm:col-span-2">
-              <a href="mailto:tmdremodeling0227@gmail.com"><Mail /> tmdremodeling0227@gmail.com</a>
-            </Button>
-            <Button asChild variant="subtle" size="xl" className="justify-center sm:col-span-2">
-              <Link to="/reviews"><MessageSquareHeart /> Leave A 5-Star Review</Link>
-            </Button>
+          <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-primary-foreground/15 pt-8 text-sm text-primary-foreground/60 sm:flex-row">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+              <span>© {new Date().getFullYear()} TMD Remodeling. All rights reserved.</span>
+              <Link to="/privacy" className="transition hover:text-accent">Privacy Policy</Link>
+            </div>
+            <div className="flex items-center gap-2"><ShieldCheck className="h-4 w-4 text-accent" /> Licensed & insured · Massachusetts</div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="border-t border-primary-foreground/10 bg-primary py-10 text-primary-foreground/60">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-5 text-sm sm:flex-row sm:px-8">
-          <div className="flex items-center gap-3">
-            <img src={tmdLogo} alt="TMD Remodeling logo" className="h-8 w-auto object-contain" />
-            <span>© {new Date().getFullYear()} TMD Remodeling</span>
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            <Link to="/privacy" className="transition hover:text-accent">Privacy Policy</Link>
-            <Link to="/gallery" className="transition hover:text-accent">Gallery</Link>
-            <Link to="/reviews" className="transition hover:text-accent">Reviews</Link>
-            <span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-accent" /> Licensed & insured · MA</span>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 };
