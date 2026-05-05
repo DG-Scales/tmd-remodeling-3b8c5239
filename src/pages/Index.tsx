@@ -1,6 +1,7 @@
 import { ArrowRight, Bath, Check, Hammer, Home, Mail, MapPin, MessageSquareHeart, Phone, Ruler, ShieldCheck, Star, TreePine } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { QuoteDialog } from "@/components/QuoteDialog";
 import heroHome from "@/assets/tmd/hero-home.jpg";
 import modernKitchen from "@/assets/tmd/modern-kitchen.jpg";
 import bathroomImage from "@/assets/tmd/bathroom.jpg";
@@ -70,11 +71,9 @@ const Index = () => {
               From the first swing of the hammer to the final coat of paint — TMD Remodeling builds homes you'll be proud of for years to come.
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-              <Button asChild variant="hero" size="xl">
-                <a href="tel:6174802895">Call (617) 480-2895 <Phone /></a>
-              </Button>
+              <QuoteDialog triggerLabel="Book Now · Get A Free Quote" />
               <Button asChild variant="subtle" size="xl">
-                <a href="mailto:tmdremodeling0227@gmail.com">Email Us <Mail /></a>
+                <a href="tel:6174802895">Call (617) 480-2895 <Phone /></a>
               </Button>
               <Button asChild variant="subtle" size="xl">
                 <Link to="/reviews">Leave A 5-Star Review <MessageSquareHeart /></Link>
@@ -209,6 +208,10 @@ const Index = () => {
                 </div>
               </div>
               <div className="space-y-3">
+                <QuoteDialog
+                  triggerLabel="Book Now · Get A Free Quote"
+                  triggerClassName="w-full justify-between"
+                />
                 <Button asChild variant="hero" size="xl" className="w-full justify-between">
                   <a href="tel:6174802895">(617) 480-2895 <Phone /></a>
                 </Button>
