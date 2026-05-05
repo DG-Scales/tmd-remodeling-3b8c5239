@@ -208,6 +208,10 @@ const Index = () => {
                 </div>
               </div>
               <div className="space-y-3">
+                <QuoteDialog
+                  triggerLabel="Book Now · Get A Free Quote"
+                  triggerClassName="w-full justify-between"
+                />
                 <Button asChild variant="hero" size="xl" className="w-full justify-between">
                   <a href="tel:6174802895">(617) 480-2895 <Phone /></a>
                 </Button>
