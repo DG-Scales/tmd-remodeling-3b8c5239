@@ -41,7 +41,7 @@ interface QuoteDialogProps {
 }
 
 export const QuoteDialog = ({
-  triggerLabel = "Book Now \u00b7 Get A Quote",
+  triggerLabel = "Book Now · Get A Quote",
   triggerVariant = "hero",
   triggerSize = "xl",
   triggerClassName,
@@ -74,7 +74,7 @@ export const QuoteDialog = ({
     window.location.href = mailto;
 
     toast({
-      title: "Opening your email\u2026",
+      title: "Opening your email…",
       description: "Hit send to deliver your request to TMD Remodeling.",
     });
 
@@ -91,7 +91,7 @@ export const QuoteDialog = ({
       </DialogTrigger>
       <DialogContent className="max-h-[92vh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Book Now \u00b7 Get A Free Quote</DialogTitle>
+          <DialogTitle className="text-2xl">Book Now · Get A Free Quote</DialogTitle>
           <DialogDescription>
             Tell us a little about your project. We'll reach out within one business day.
           </DialogDescription>
