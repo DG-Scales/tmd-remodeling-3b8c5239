@@ -1,6 +1,7 @@
 import { ArrowRight, Bath, Check, Hammer, Home, Mail, MapPin, MessageSquareHeart, Phone, Ruler, ShieldCheck, Star, TreePine } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { QuoteDialog } from "@/components/QuoteDialog";
 import heroHome from "@/assets/tmd/hero-home.jpg";
 import modernKitchen from "@/assets/tmd/modern-kitchen.jpg";
 import bathroomImage from "@/assets/tmd/bathroom.jpg";
