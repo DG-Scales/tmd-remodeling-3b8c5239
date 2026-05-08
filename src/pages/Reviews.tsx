@@ -27,6 +27,45 @@ const reviewLinks = [
   },
 ];
 
+const testimonials = [
+  {
+    quote:
+      "TMD remodeled our kitchen from top to bottom and the craftsmanship is incredible. Tom and the crew were on time every day, kept the site clean, and the finish work is flawless.",
+    name: "Katie M.",
+    project: "Full Kitchen Remodel · Salem, MA",
+  },
+  {
+    quote:
+      "We had TMD build a new deck and refresh our siding. Honest pricing, zero surprises, and they treated our home like it was their own. Already booked them for the bathroom next.",
+    name: "Brian R.",
+    project: "Deck + Siding · Beverly, MA",
+  },
+  {
+    quote:
+      "Beautiful custom built-ins around our fireplace — exactly what we pictured. Communication was easy the whole way through and the quality speaks for itself.",
+    name: "Jessica P.",
+    project: "Custom Carpentry · Peabody, MA",
+  },
+  {
+    quote:
+      "Quick response, fair quote, and the bathroom turned out better than we hoped. Tile work is clean and tight. Highly recommend TMD to anyone on the North Shore.",
+    name: "Michael D.",
+    project: "Bathroom Remodel · Danvers, MA",
+  },
+  {
+    quote:
+      "Hardscape patio and walkway came out gorgeous. Real pride in their work. You can tell they care about doing it right, not just fast.",
+    name: "Allison T.",
+    project: "Hardscaping · Marblehead, MA",
+  },
+  {
+    quote:
+      "From the first call to the final walkthrough, TMD was professional and easy to work with. We finally have the home we've been planning for years.",
+    name: "Chris & Sam L.",
+    project: "Whole-Home Refresh · Lynn, MA",
+  },
+];
+
 const steps = [
   { n: "01", title: "Click A Button", text: "Pick Google, Facebook, or email below." },
   { n: "02", title: "Leave A 5-Star Review", text: "Share a sentence about your experience." },
@@ -85,6 +124,36 @@ const Reviews = () => {
         </div>
       </section>
 
+
+      {/* Testimonials */}
+      <section className="bg-background py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent">What homeowners say</p>
+            <h2 className="text-4xl font-bold sm:text-5xl">Straight From The Clients</h2>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((t) => (
+              <article
+                key={t.name}
+                className="flex flex-col rounded-lg border border-border bg-card p-8 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-crafted"
+              >
+                <div className="mb-4 flex items-center gap-1 text-accent">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-accent" />
+                  ))}
+                </div>
+                <Quote className="h-6 w-6 text-accent/60" />
+                <p className="mt-3 flex-grow leading-7 text-foreground">"{t.quote}"</p>
+                <div className="mt-6 border-t border-border pt-4">
+                  <p className="font-semibold">{t.name}</p>
+                  <p className="text-sm text-muted-foreground">{t.project}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Review platforms */}
       <section className="bg-card py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
