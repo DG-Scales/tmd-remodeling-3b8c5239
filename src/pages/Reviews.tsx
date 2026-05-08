@@ -124,6 +124,36 @@ const Reviews = () => {
         </div>
       </section>
 
+
+      {/* Testimonials */}
+      <section className="bg-background py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mb-12 text-center">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent">What homeowners say</p>
+            <h2 className="text-4xl font-bold sm:text-5xl">Straight From The Clients</h2>
+          </div>
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {testimonials.map((t) => (
+              <article
+                key={t.name}
+                className="flex flex-col rounded-lg border border-border bg-card p-8 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-crafted"
+              >
+                <div className="mb-4 flex items-center gap-1 text-accent">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-accent" />
+                  ))}
+                </div>
+                <Quote className="h-6 w-6 text-accent/60" />
+                <p className="mt-3 flex-grow leading-7 text-foreground">"{t.quote}"</p>
+                <div className="mt-6 border-t border-border pt-4">
+                  <p className="font-semibold">{t.name}</p>
+                  <p className="text-sm text-muted-foreground">{t.project}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
       {/* Review platforms */}
       <section className="bg-card py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
