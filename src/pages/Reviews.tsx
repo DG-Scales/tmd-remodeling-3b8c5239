@@ -7,7 +7,7 @@ const reviewLinks = [
   {
     title: "Google",
     text: "A 5-star Google review helps homeowners find a remodeler they can trust.",
-    href: "https://www.google.com/search?q=TMD+Remodeling+review",
+    href: "https://g.page/r/Ce320FND0rxyEAE/review",
     label: "Leave A 5-Star Review",
     icon: Star,
   },
