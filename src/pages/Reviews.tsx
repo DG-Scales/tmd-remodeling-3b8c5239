@@ -1,5 +1,6 @@
 import { ArrowLeft, Facebook, Mail, MessageSquareHeart, Phone, Quote, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import tmdLogo from "@/assets/tmd/tmd-logo.png";
 
@@ -73,6 +74,13 @@ const steps = [
 ];
 
 const Reviews = () => {
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
+      const el = document.getElementById(hash.slice(1));
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+    }
+  }, [hash]);
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* Header */}
@@ -155,7 +163,7 @@ const Reviews = () => {
         </div>
       </section>
       {/* Review platforms */}
-      <section className="bg-card py-20 sm:py-24">
+      <section id="leave-review" className="scroll-mt-24 bg-card py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="mb-12 text-center">
             <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent">Where to leave it</p>
