@@ -76,7 +76,9 @@ const Index = () => {
                 <a href="tel:6174802895">Call (617) 480-2895 <Phone /></a>
               </Button>
               <Button asChild variant="subtle" size="xl">
-                <Link to="/reviews">Leave A 5-Star Review <MessageSquareHeart /></Link>
+                <a href="https://g.page/r/Ce320FND0rxyEAE/review" target="_blank" rel="noopener noreferrer">
+                  Leave A 5-Star Review <span aria-hidden="true">🌟🌟🌟🌟🌟</span>
+                </a>
               </Button>
             </div>
           </div>
@@ -222,7 +224,9 @@ const Index = () => {
                   <a href="mailto:tmdremodeling0227@gmail.com">tmdremodeling0227@gmail.com <Mail /></a>
                 </Button>
                 <Button asChild variant="subtle" size="xl" className="w-full justify-between">
-                  <Link to="/reviews">Leave A 5-Star Review <MessageSquareHeart /></Link>
+                  <a href="https://g.page/r/Ce320FND0rxyEAE/review" target="_blank" rel="noopener noreferrer">
+                    Leave A 5-Star Review <span aria-hidden="true">🌟🌟🌟🌟🌟</span>
+                  </a>
                 </Button>
               </div>
             </div>
