@@ -77,7 +77,7 @@ const Index = () => {
               </Button>
               <Button asChild variant="subtle" size="xl">
                 <a href="https://g.page/r/Ce320FND0rxyEAE/review" target="_blank" rel="noopener noreferrer">
-                  Leave A 5-Star Review <span aria-hidden="true">🌟🌟🌟🌟🌟</span>
+                  Leave A 5-Star Review <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
                 </a>
               </Button>
             </div>
@@ -225,7 +225,7 @@ const Index = () => {
                 </Button>
                 <Button asChild variant="subtle" size="xl" className="w-full justify-between">
                   <a href="https://g.page/r/Ce320FND0rxyEAE/review" target="_blank" rel="noopener noreferrer">
-                    Leave A 5-Star Review <span aria-hidden="true">🌟🌟🌟🌟🌟</span>
+                    Leave A 5-Star Review <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
                   </a>
                 </Button>
               </div>
