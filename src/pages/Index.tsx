@@ -1,4 +1,4 @@
-import { ArrowRight, Bath, Check, Hammer, Home, Mail, MapPin, MessageSquareHeart, Phone, Ruler, ShieldCheck, Star, TreePine } from "lucide-react";
+import { ArrowRight, Bath, Check, Hammer, Home, Mail, MapPin, MessageSquareHeart, Phone, Quote, Ruler, ShieldCheck, Star, TreePine } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { QuoteDialog } from "@/components/QuoteDialog";
@@ -24,6 +24,13 @@ const values = [
 ];
 
 const areas = ["Salem", "Revere", "Malden", "Everett", "Boston", "Marblehead", "Swampscott", "Danvers", "Peabody"];
+
+const googleReviews = [
+  { quote: "TMD remodeled our kitchen top to bottom and the craftsmanship is incredible. On time every day, site kept clean, finish work flawless.", name: "Katie M.", project: "Kitchen Remodel · Salem, MA" },
+  { quote: "Honest pricing, zero surprises, and they treated our home like their own. New deck and siding came out beautiful — already booked them for the bathroom.", name: "Brian R.", project: "Deck + Siding · Beverly, MA" },
+  { quote: "Custom built-ins around our fireplace turned out exactly how we pictured. Easy communication the whole way through. Quality speaks for itself.", name: "Jessica P.", project: "Custom Carpentry · Peabody, MA" },
+  { quote: "Quick response, fair quote, bathroom turned out better than we hoped. Tile work is clean and tight. Highly recommend on the North Shore.", name: "Michael D.", project: "Bathroom Remodel · Danvers, MA" },
+];
 
 const Index = () => {
   return (
@@ -182,6 +189,54 @@ const Index = () => {
                 <MapPin className="h-4 w-4 text-accent" /> {area}
               </span>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Google Reviews */}
+      <section className="border-t border-border bg-card py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mb-12 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
+            <div>
+              <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent">What clients say</p>
+              <h2 className="text-4xl font-bold leading-tight sm:text-5xl">5-Star Rated On Google.</h2>
+              <div className="mt-5 flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-1 text-accent">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-6 w-6 fill-accent" />)}
+                </div>
+                <span className="text-2xl font-bold">5.0</span>
+                <span className="text-sm font-semibold uppercase tracking-[0.18em] text-muted-foreground">Verified Google reviews</span>
+              </div>
+            </div>
+            <Button asChild variant="hero" size="lg">
+              <a href="https://www.google.com/search?q=TMD+Remodeling+reviews" target="_blank" rel="noopener noreferrer">
+                See All On Google <ArrowRight />
+              </a>
+            </Button>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+            {googleReviews.map((r) => (
+              <article key={r.name} className="flex flex-col rounded-lg border border-border bg-background p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-crafted">
+                <div className="mb-3 flex items-center gap-1 text-accent">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="h-4 w-4 fill-accent" />)}
+                </div>
+                <Quote className="h-5 w-5 text-accent/60" />
+                <p className="mt-2 flex-grow text-sm leading-6 text-foreground">"{r.quote}"</p>
+                <div className="mt-5 border-t border-border pt-3">
+                  <p className="text-sm font-semibold">{r.name}</p>
+                  <p className="text-xs text-muted-foreground">{r.project}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <Button asChild variant="subtle" size="lg">
+              <Link to="/reviews#leave-review">
+                Leave A 5-Star Review <span aria-hidden="true">⭐⭐⭐⭐⭐</span>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
