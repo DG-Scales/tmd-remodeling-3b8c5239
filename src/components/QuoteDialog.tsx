@@ -16,6 +16,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const quoteSchema = z.object({
   firstName: z.string().trim().min(1, "First name is required").max(60),
@@ -53,33 +54,43 @@ export const QuoteDialog = ({
     defaultValues: { firstName: "", lastName: "", email: "", phone: "", city: "", details: "" },
   });
 
-  const onSubmit = (values: QuoteValues) => {
-    const subject = `New Quote Request - ${values.firstName} ${values.lastName}`;
-    const body = [
-      `Name: ${values.firstName} ${values.lastName}`,
-      `Email: ${values.email}`,
-      `Phone: ${values.phone}`,
-      values.city ? `City: ${values.city}` : null,
-      "",
-      "Project details:",
-      values.details || "(none provided)",
-    ]
-      .filter(Boolean)
-      .join("\n");
+  const [submitting, setSubmitting] = useState(false);
 
-    const mailto = `mailto:tmdremodeling0227@gmail.com?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailto;
-
-    toast({
-      title: "Opening your email…",
-      description: "Hit send to deliver your request to TMD Remodeling.",
-    });
-
-    setOpen(false);
-    form.reset();
+  const onSubmit = async (values: QuoteValues) => {
+    setSubmitting(true);
+    try {
+      const idempotencyKey = `quote-${crypto.randomUUID()}`;
+      const { error } = await supabase.functions.invoke("send-transactional-email", {
+        body: {
+          templateName: "quote-request",
+          idempotencyKey,
+          templateData: {
+            firstName: values.firstName,
+            lastName: values.lastName,
+            email: values.email,
+            phone: values.phone,
+            city: values.city,
+            details: values.details,
+          },
+        },
+      });
+      if (error) throw error;
+      toast({
+        title: "Request sent!",
+        description: "Thanks — we'll reach out within one business day.",
+      });
+      setOpen(false);
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      toast({
+        title: "Couldn't send request",
+        description: "Please try again or call us at (617) 480-2895.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
