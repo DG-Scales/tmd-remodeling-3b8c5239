@@ -10,6 +10,7 @@ import Reviews from "./pages/Reviews.tsx";
 import Gallery from "./pages/Gallery.tsx";
 import Privacy from "./pages/Privacy.tsx";
 import Unsubscribe from "./pages/Unsubscribe.tsx";
+import TestEmail from "./pages/TestEmail.tsx";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/unsubscribe" element={<Unsubscribe />} />
+          <Route path="/test-email" element={<TestEmail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
