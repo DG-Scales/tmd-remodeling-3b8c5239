@@ -25,6 +25,13 @@ const values = [
 
 const areas = ["Salem", "Revere", "Malden", "Everett", "Boston", "Marblehead", "Swampscott", "Danvers", "Peabody"];
 
+const googleReviews = [
+  { quote: "TMD remodeled our kitchen top to bottom and the craftsmanship is incredible. On time every day, site kept clean, finish work flawless.", name: "Katie M.", project: "Kitchen Remodel · Salem, MA" },
+  { quote: "Honest pricing, zero surprises, and they treated our home like their own. New deck and siding came out beautiful — already booked them for the bathroom.", name: "Brian R.", project: "Deck + Siding · Beverly, MA" },
+  { quote: "Custom built-ins around our fireplace turned out exactly how we pictured. Easy communication the whole way through. Quality speaks for itself.", name: "Jessica P.", project: "Custom Carpentry · Peabody, MA" },
+  { quote: "Quick response, fair quote, bathroom turned out better than we hoped. Tile work is clean and tight. Highly recommend on the North Shore.", name: "Michael D.", project: "Bathroom Remodel · Danvers, MA" },
+];
+
 const Index = () => {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
