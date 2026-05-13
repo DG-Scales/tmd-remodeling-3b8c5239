@@ -193,8 +193,8 @@ export const QuoteDialog = ({
                 </FormItem>
               )}
             />
-            <Button type="submit" variant="hero" size="lg" className="w-full justify-center">
-              Send Request <Send />
+            <Button type="submit" variant="hero" size="lg" className="w-full justify-center" disabled={submitting}>
+              {submitting ? "Sending…" : <>Send Request <Send /></>}
             </Button>
             <p className="text-center text-xs text-muted-foreground">
               Or call us directly at{" "}
