@@ -21,6 +21,8 @@ import genRoofing from "@/assets/tmd/gallery/gen-roofing.jpg";
 import genPaint from "@/assets/tmd/gallery/gen-interior-paint.jpg";
 import genSiding from "@/assets/tmd/gallery/gen-siding.jpg";
 import genWindow from "@/assets/tmd/gallery/gen-window.jpg";
+import sidingTrim1 from "@/assets/tmd/gallery/siding-trim-1.jpg";
+import sidingTrim2 from "@/assets/tmd/gallery/siding-trim-2.jpg";
 
 const projects = [
   { src: genKitchen, title: "Modern White Kitchen Remodel", category: "Kitchen" },
@@ -31,6 +33,8 @@ const projects = [
   { src: genBuiltins, title: "Custom Built-Ins & Mantel", category: "Carpentry" },
   { src: frontPorchStairs, title: "Front Porch & Stair Rebuild", category: "Carpentry" },
   { src: genSiding, title: "Vinyl Siding Installation", category: "Siding" },
+  { src: sidingTrim1, title: "Cedar Shake Siding & White Trim", category: "Siding" },
+  { src: sidingTrim2, title: "Full Exterior Siding & Trim Wrap", category: "Siding" },
   { src: brickPatio, title: "Brick Patio Installation", category: "Hardscape" },
   { src: genWindow, title: "Window Replacement", category: "Windows" },
   { src: genRoofing, title: "Architectural Shingle Roofing", category: "Roofing" },
