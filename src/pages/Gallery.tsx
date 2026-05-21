@@ -97,7 +97,7 @@ const Gallery = () => {
           <p className="max-w-xl text-muted-foreground">Reach out for a free estimate on your next project.</p>
           <div className="mt-2 flex flex-col gap-3 sm:flex-row">
             <Button asChild variant="hero" size="xl">
-              <a href="tel:6174802895">Call (617) 480-2895 <Phone /></a>
+              <a href="tel:8574885197">Call (857) 488-5197 <Phone /></a>
             </Button>
             <Button asChild variant="subtle" size="xl">
               <a href="mailto:tmdremodeling0227@gmail.com">Email Us <Mail /></a>

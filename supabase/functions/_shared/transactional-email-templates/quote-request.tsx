@@ -78,7 +78,7 @@ export const template = {
     firstName: 'Jane',
     lastName: 'Doe',
     email: 'jane@example.com',
-    phone: '(617) 555-1234',
+    phone: '(857) 555-1234',
     city: 'Salem, MA',
     details: 'Looking to remodel my kitchen — granite counters and new cabinets.',
   },
