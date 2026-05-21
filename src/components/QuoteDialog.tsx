@@ -85,7 +85,7 @@ export const QuoteDialog = ({
       console.error(err);
       toast({
         title: "Couldn't send request",
-        description: "Please try again or call us at (617) 480-2895.",
+        description: "Please try again or call us at (857) 488-5197.",
         variant: "destructive",
       });
     } finally {
@@ -157,7 +157,7 @@ export const QuoteDialog = ({
                 <FormItem>
                   <FormLabel>Phone</FormLabel>
                   <FormControl>
-                    <Input type="tel" placeholder="(617) 555-1234" autoComplete="tel" {...field} />
+                    <Input type="tel" placeholder="(857) 555-1234" autoComplete="tel" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -198,8 +198,8 @@ export const QuoteDialog = ({
             </Button>
             <p className="text-center text-xs text-muted-foreground">
               Or call us directly at{" "}
-              <a className="font-semibold text-accent hover:underline" href="tel:6174802895">
-                (617) 480-2895
+              <a className="font-semibold text-accent hover:underline" href="tel:8574885197">
+                (857) 488-5197
               </a>
             </p>
           </form>

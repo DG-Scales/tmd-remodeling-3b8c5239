@@ -58,7 +58,7 @@ const Privacy = () => {
             <h2 className="text-2xl font-semibold text-foreground">Contact</h2>
             <p className="mt-3">
               TMD Remodeling<br />
-              Phone: <a className="text-accent hover:underline" href="tel:6174802895">(617) 480-2895</a><br />
+              Phone: <a className="text-accent hover:underline" href="tel:8574885197">(857) 488-5197</a><br />
               Email: <a className="text-accent hover:underline" href="mailto:tmdremodeling0227@gmail.com">tmdremodeling0227@gmail.com</a>
             </p>
           </div>
