@@ -73,7 +73,7 @@ const Index = () => {
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button asChild variant="hero" size="xl">
-                <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Call Now <CalendarCheck /></a>
+                <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Schedule a Meeting <CalendarCheck /></a>
               </Button>
               <Button asChild variant="subtle" size="xl">
                 <a href="tel:8574885197">Call (857) 488-5197 <Phone /></a>
@@ -214,7 +214,7 @@ const Index = () => {
               </div>
               <div className="space-y-3">
               <Button asChild variant="hero" size="xl" className="w-full justify-between">
-                <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Call Now <CalendarCheck /></a>
+                <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Schedule a Meeting <CalendarCheck /></a>
               </Button>
               <Button asChild variant="hero" size="xl" className="w-full justify-between">
                 <a href="tel:8574885197">(857) 488-5197 <Phone /></a>
