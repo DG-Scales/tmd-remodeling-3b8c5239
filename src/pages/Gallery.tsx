@@ -1,4 +1,4 @@
-import { ArrowLeft, Mail, Phone } from "lucide-react";
+import { ArrowLeft, CalendarCheck, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import tmdLogo from "@/assets/tmd/tmd-logo.png";
@@ -97,6 +97,9 @@ const Gallery = () => {
           <p className="max-w-xl text-muted-foreground">Reach out for a free estimate on your next project.</p>
           <div className="mt-2 flex flex-col gap-3 sm:flex-row">
             <Button asChild variant="hero" size="xl">
+              <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Book Now · Schedule a Call <CalendarCheck /></a>
+            </Button>
+            <Button asChild variant="subtle" size="xl">
               <a href="tel:8574885197">Call (857) 488-5197 <Phone /></a>
             </Button>
             <Button asChild variant="subtle" size="xl">
