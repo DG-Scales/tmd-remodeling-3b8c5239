@@ -76,7 +76,7 @@ const Index = () => {
                 <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Schedule a Meeting <CalendarCheck /></a>
               </Button>
               <Button asChild variant="subtle" size="xl">
-                <a href="tel:8574885197">Call (857) 488-5197 <Phone /></a>
+                <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Schedule a Meeting <CalendarCheck /></a>
               </Button>
               <Button asChild variant="subtle" size="xl">
                 <Link to="/reviews#leave-review">
@@ -217,7 +217,7 @@ const Index = () => {
                 <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Schedule a Meeting <CalendarCheck /></a>
               </Button>
               <Button asChild variant="hero" size="xl" className="w-full justify-between">
-                <a href="tel:8574885197">(857) 488-5197 <Phone /></a>
+                <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Schedule a Meeting <CalendarCheck /></a>
               </Button>
                 <Button asChild variant="subtle" size="xl" className="w-full justify-between">
                   <a href="tel:6174802895">(617) 480-2895 <Phone /></a>

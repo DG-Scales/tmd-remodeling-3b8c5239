@@ -100,7 +100,7 @@ const Gallery = () => {
               <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Schedule a Meeting <CalendarCheck /></a>
             </Button>
             <Button asChild variant="subtle" size="xl">
-              <a href="tel:8574885197">Call (857) 488-5197 <Phone /></a>
+              <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Schedule a Meeting <CalendarCheck /></a>
             </Button>
             <Button asChild variant="subtle" size="xl">
               <a href="mailto:tmdremodeling0227@gmail.com">Email Us <Mail /></a>
