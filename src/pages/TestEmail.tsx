@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -43,6 +44,11 @@ const TestEmail = () => {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-5 py-10">
+      <Helmet>
+        <title>Test Email — TMD Remodeling</title>
+        <meta name="description" content="Test email delivery for TMD Remodeling." />
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <div className="w-full max-w-md rounded-lg border border-border bg-card p-8 shadow-soft">
         <h1 className="text-2xl font-bold">Email deliverability test</h1>
         <p className="mt-2 text-sm text-muted-foreground">

@@ -1,4 +1,5 @@
 import { ArrowLeft, CalendarCheck, Mail, Phone } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import tmdLogo from "@/assets/tmd/tmd-logo.png";
@@ -50,6 +51,15 @@ const projects = [
 const Gallery = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>Project Gallery — TMD Remodeling</title>
+        <meta name="description" content="Browse completed kitchen remodels, bathroom renovations, decks, hardscaping, siding, and custom carpentry by TMD Remodeling in Massachusetts." />
+        <link rel="canonical" href="https://tmdremodeling.lovable.app/gallery" />
+        <meta property="og:title" content="Project Gallery — TMD Remodeling" />
+        <meta property="og:description" content="Browse completed kitchen remodels, bathroom renovations, decks, hardscaping, siding, and custom carpentry by TMD Remodeling in Massachusetts." />
+        <meta property="og:url" content="https://tmdremodeling.lovable.app/gallery" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <header className="border-b border-border bg-primary text-primary-foreground">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
           <Link to="/" className="flex items-center gap-3">
