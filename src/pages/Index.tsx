@@ -1,4 +1,5 @@
 import { ArrowRight, Bath, CalendarCheck, Check, Hammer, Home, Mail, MapPin, MessageSquareHeart, Phone, Ruler, ShieldCheck, Star, TreePine } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import heroHome from "@/assets/tmd/hero-home.jpg";
@@ -29,6 +30,15 @@ const areas = ["Salem", "Revere", "Malden", "Everett", "Boston", "Marblehead", "
 const Index = () => {
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
+      <Helmet>
+        <title>TMD Remodeling — North Shore &amp; Boston Home Renovations</title>
+        <meta name="description" content="TMD Remodeling builds, remodels, and restores homes across Salem, Boston, and the North Shore. Kitchens, baths, additions, and custom carpentry." />
+        <link rel="canonical" href="https://tmdremodeling.lovable.app/" />
+        <meta property="og:title" content="TMD Remodeling — North Shore &amp; Boston Home Renovations" />
+        <meta property="og:description" content="TMD Remodeling builds, remodels, and restores homes across Salem, Boston, and the North Shore. Kitchens, baths, additions, and custom carpentry." />
+        <meta property="og:url" content="https://tmdremodeling.lovable.app/" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <section className="relative min-h-[92vh] overflow-hidden">
         <img
           src={heroHome}

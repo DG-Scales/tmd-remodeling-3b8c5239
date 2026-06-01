@@ -1,4 +1,5 @@
 import { ArrowLeft } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import tmdLogo from "@/assets/tmd/tmd-logo.png";
@@ -6,6 +7,15 @@ import tmdLogo from "@/assets/tmd/tmd-logo.png";
 const Privacy = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>Privacy Policy — TMD Remodeling</title>
+        <meta name="description" content="TMD Remodeling privacy policy. Learn how we collect, use, and protect your information." />
+        <link rel="canonical" href="https://tmdremodeling.lovable.app/privacy" />
+        <meta property="og:title" content="Privacy Policy — TMD Remodeling" />
+        <meta property="og:description" content="TMD Remodeling privacy policy. Learn how we collect, use, and protect your information." />
+        <meta property="og:url" content="https://tmdremodeling.lovable.app/privacy" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <header className="border-b border-border bg-primary text-primary-foreground">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
           <Link to="/" className="flex items-center gap-3">

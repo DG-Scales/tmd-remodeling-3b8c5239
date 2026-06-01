@@ -1,4 +1,5 @@
 import { ArrowLeft, Facebook, Mail, MessageSquareHeart, Phone, Quote, Star } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -83,6 +84,15 @@ const Reviews = () => {
   }, [hash]);
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <Helmet>
+        <title>Reviews &amp; Referrals — TMD Remodeling</title>
+        <meta name="description" content="See what homeowners say about TMD Remodeling. Leave a Google review, follow on Facebook, or send a referral for your next project." />
+        <link rel="canonical" href="https://tmdremodeling.lovable.app/reviews" />
+        <meta property="og:title" content="Reviews &amp; Referrals — TMD Remodeling" />
+        <meta property="og:description" content="See what homeowners say about TMD Remodeling. Leave a Google review, follow on Facebook, or send a referral for your next project." />
+        <meta property="og:url" content="https://tmdremodeling.lovable.app/reviews" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Header */}
       <nav className="border-b border-border bg-card">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 
 const FUNCTIONS_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/handle-email-unsubscribe`;
@@ -46,6 +47,11 @@ const Unsubscribe = () => {
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-background px-5">
+      <Helmet>
+        <title>Unsubscribe — TMD Remodeling</title>
+        <meta name="description" content="Manage your email preferences and unsubscribe from TMD Remodeling communications." />
+        <meta name="robots" content="noindex" />
+      </Helmet>
       <div className="w-full max-w-md rounded-lg border border-border bg-card p-8 text-center shadow-soft">
         <h1 className="text-2xl font-bold">Email preferences</h1>
         <div className="mt-6 text-muted-foreground">
