@@ -42,7 +42,7 @@ interface QuoteDialogProps {
 }
 
 export const QuoteDialog = ({
-  triggerLabel = "Book Now · Get A Quote",
+  triggerLabel = "Schedule a Meeting",
   triggerVariant = "hero",
   triggerSize = "xl",
   triggerClassName,
@@ -102,7 +102,7 @@ export const QuoteDialog = ({
       </DialogTrigger>
       <DialogContent className="max-h-[92vh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle className="text-2xl">Book Now · Get A Free Quote</DialogTitle>
+          <DialogTitle className="text-2xl">Schedule a Meeting</DialogTitle>
           <DialogDescription>
             Tell us a little about your project. We'll reach out within one business day.
           </DialogDescription>
