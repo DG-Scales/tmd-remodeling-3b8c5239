@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { ArrowLeft, CalendarCheck, Mail, Phone } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import tmdLogo from "@/assets/tmd/tmd-logo.png";
 import patioFirepit from "@/assets/tmd/gallery/patio-firepit.jpg";
 import paverSteps from "@/assets/tmd/gallery/paver-steps.jpg";
@@ -48,7 +50,16 @@ const projects = [
   { src: excavation, title: "Site Prep & Excavation", category: "Site Work" },
 ];
 
+const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
+
 const Gallery = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filtered =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeCategory);
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       <Helmet>
@@ -73,7 +84,7 @@ const Gallery = () => {
       </header>
 
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
-        <div className="mb-12 max-w-2xl">
+        <div className="mb-6 max-w-2xl">
           <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-accent">Our Work</p>
           <h1 className="text-4xl font-bold leading-tight sm:text-5xl">Project Gallery</h1>
           <p className="mt-5 text-lg leading-8 text-muted-foreground">
@@ -81,8 +92,27 @@ const Gallery = () => {
           </p>
         </div>
 
+        <div className="mb-10 -mx-5 px-5 sm:-mx-8 sm:px-8">
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={cn(
+                  "flex-shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition",
+                  activeCategory === cat
+                    ? "border-accent bg-accent text-accent-foreground"
+                    : "border-border bg-card text-muted-foreground hover:border-accent hover:text-accent"
+                )}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
+          {filtered.map((p) => (
             <figure key={p.title} className="group relative overflow-hidden rounded-lg border border-border bg-card shadow-soft transition hover:shadow-crafted">
               <div className="aspect-[4/3] overflow-hidden">
                 <img
