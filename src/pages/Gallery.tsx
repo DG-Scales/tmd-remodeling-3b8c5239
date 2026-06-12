@@ -55,7 +55,9 @@ const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<null | { src: string; title: string; category: string }>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const lightboxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -74,6 +76,24 @@ const Gallery = () => {
       document.removeEventListener("mousedown", onClick);
     };
   }, [menuOpen]);
+  useEffect(() => {
+    if (!selectedImage) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedImage(null);
+    };
+    const onClick = (e: MouseEvent) => {
+      if (lightboxRef.current && !lightboxRef.current.contains(e.target as Node)) {
+        setSelectedImage(null);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
+  }, [selectedImage]);
+
 
 
   const filtered =
@@ -162,7 +182,11 @@ const Gallery = () => {
 
         <div className="grid min-h-[60vh] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 [content-visibility:auto]">
           {filtered.map((p) => (
-            <figure key={p.title} className="group relative overflow-hidden rounded-lg border border-border bg-card shadow-soft transition hover:shadow-crafted">
+            <figure
+              key={p.title}
+              className="group relative overflow-hidden rounded-lg border border-border bg-card shadow-soft transition hover:shadow-crafted cursor-pointer"
+              onClick={() => setSelectedImage(p)}
+            >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
                   src={p.src}
@@ -180,6 +204,32 @@ const Gallery = () => {
             </figure>
           ))}
         </div>
+
+        {selectedImage && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
+            <div
+              ref={lightboxRef}
+              className="relative max-h-[90vh] max-w-[90vw] rounded-lg border border-border bg-card shadow-xl overflow-hidden"
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute right-3 top-3 z-10 rounded-full bg-black/60 p-2 text-white transition hover:bg-black/80"
+                aria-label="Close"
+              >
+                <X className="h-5 w-5" />
+              </button>
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.title}
+                className="max-h-[85vh] max-w-[85vw] object-contain"
+              />
+              <div className="bg-card px-5 py-3 text-center">
+                <div className="text-xs font-bold uppercase tracking-[0.18em] text-accent">{selectedImage.category}</div>
+                <div className="mt-1 font-semibold text-foreground">{selectedImage.title}</div>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="mt-16 flex flex-col items-center gap-4 rounded-lg border border-border bg-card p-10 text-center sm:p-12">
           <h2 className="text-3xl font-bold sm:text-4xl">Like What You See?</h2>
