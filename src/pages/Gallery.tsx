@@ -104,7 +104,7 @@ const Gallery = () => {
             <Link className="transition hover:text-accent" to="/gallery">Gallery</Link>
             <a className="transition hover:text-accent" href="mailto:tmdremodeling0227@gmail.com">Contact</a>
           </div>
-          <div className="flex items-center gap-3 md:hidden">
+          <div ref={menuRef} className="flex items-center gap-3 md:hidden">
             <Button asChild variant="subtle" size="sm">
               <Link to="/"><ArrowLeft className="h-4 w-4" /> Back</Link>
             </Button>
@@ -112,20 +112,22 @@ const Gallery = () => {
               className="rounded-md p-2 text-primary-foreground"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={menuOpen}
             >
               {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
-          </div>
-          {menuOpen && (
-            <div className="absolute right-5 top-full z-50 mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted md:hidden">
-              <div className="flex flex-col gap-3 text-sm font-medium text-foreground">
-                <Link className="transition hover:text-accent" to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-                <Link className="transition hover:text-accent" to="/reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
-                <Link className="transition hover:text-accent" to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
-                <a className="transition hover:text-accent" href="mailto:tmdremodeling0227@gmail.com" onClick={() => setMenuOpen(false)}>Contact</a>
+            {menuOpen && (
+              <div className="absolute right-5 top-full z-50 mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted">
+                <div className="flex flex-col gap-3 text-sm font-medium text-foreground">
+                  <Link className="transition hover:text-accent" to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+                  <Link className="transition hover:text-accent" to="/reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
+                  <Link className="transition hover:text-accent" to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
+                  <a className="transition hover:text-accent" href="mailto:tmdremodeling0227@gmail.com" onClick={() => setMenuOpen(false)}>Contact</a>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
+
         </div>
       </header>
 
