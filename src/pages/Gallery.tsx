@@ -31,7 +31,7 @@ const projects = [
   { src: genKitchen, title: "Modern White Kitchen Remodel", category: "Kitchen" },
   { src: genBathroom, title: "Luxury Master Bathroom", category: "Bathroom" },
   { src: patioFirepit, title: "Paver Patio & Fire Pit", category: "Hardscape" },
-  { src: genDeck, title: "Composite Deck With Railings", category: "Decks" },
+  
   { src: bathroomShower, title: "Custom Tile Shower Build", category: "Bathroom" },
   { src: genBuiltins, title: "Custom Built-Ins & Mantel", category: "Carpentry" },
   { src: frontPorchStairs, title: "Front Porch & Stair Rebuild", category: "Carpentry" },
