@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Bath, CalendarCheck, Check, Hammer, Home, Mail, MapPin, Menu, Phone, Ruler, ShieldCheck, Star, TreePine, X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -30,6 +30,26 @@ const areas = ["Salem", "Revere", "Malden", "Everett", "Boston", "Marblehead", "
 
 const Index = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    const onClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
+  }, [menuOpen]);
+
 
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
@@ -54,7 +74,7 @@ const Index = () => {
           className="hero-crossfade absolute inset-0 h-full w-full object-cover opacity-0"
         />
         <div className="absolute inset-0 bg-hero-overlay" />
-        <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
+        <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
           <a href="#top" className="flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
             <img src={tmdLogo} alt="TMD Remodeling logo" className="h-24 w-auto object-contain drop-shadow-lg sm:h-28 lg:h-32" />
             <span className="hidden text-sm font-semibold uppercase tracking-[0.22em] text-primary-foreground sm:inline">TMD Remodeling</span>
@@ -66,42 +86,47 @@ const Index = () => {
             <Link className="transition hover:text-accent" to="/reviews">Reviews</Link>
             <a className="transition hover:text-accent" href="#contact">Contact</a>
           </div>
-          <button
-            className="rounded-md p-2 text-primary-foreground md:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-          {menuOpen && (
-            <div className="absolute right-5 top-full z-50 mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted md:hidden">
-              <div className="flex flex-col gap-3 text-sm font-medium text-foreground">
-                <a className="transition hover:text-accent" href="#services" onClick={() => setMenuOpen(false)}>Services</a>
-                <a className="transition hover:text-accent" href="#about" onClick={() => setMenuOpen(false)}>About</a>
-                <Link className="transition hover:text-accent" to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
-                <Link className="transition hover:text-accent" to="/reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
-                <a className="transition hover:text-accent" href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+          <div ref={menuRef} className="md:hidden">
+            <button
+              className="rounded-md p-2 text-primary-foreground"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
+            >
+              {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+            {menuOpen && (
+              <div className="absolute right-5 top-full z-50 mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted">
+                <div className="flex flex-col gap-3 text-sm font-medium text-foreground">
+                  <a className="transition hover:text-accent" href="#services" onClick={() => setMenuOpen(false)}>Services</a>
+                  <a className="transition hover:text-accent" href="#about" onClick={() => setMenuOpen(false)}>About</a>
+                  <Link className="transition hover:text-accent" to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
+                  <Link className="transition hover:text-accent" to="/reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
+                  <a className="transition hover:text-accent" href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </nav>
 
-        <div id="top" className="relative z-10 mx-auto flex max-w-7xl flex-col justify-end px-5 pb-16 pt-24 sm:px-8 lg:min-h-[76vh] lg:pb-24">
+
+        <div id="top" className="relative z-10 mx-auto flex max-w-7xl flex-col justify-end px-5 pb-16 pt-12 sm:px-8 sm:pt-24 lg:min-h-[76vh] lg:pb-24">
           <div className="max-w-3xl reveal-up">
-            <p className="mb-5 inline-flex items-center gap-2 border-l-4 border-accent bg-accent/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-primary-foreground backdrop-blur">
+            <p className="mb-4 inline-flex items-center gap-2 border-l-4 border-accent bg-accent/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-primary-foreground backdrop-blur">
               <ShieldCheck className="h-4 w-4 text-accent" /> Massachusetts remodeling experts
             </p>
-            <div className="relative min-h-[11rem] sm:min-h-[15rem] lg:min-h-[16rem]">
-              <h1 className="hero-crossfade-out absolute inset-0 max-w-3xl font-bold leading-[1.05] text-primary-foreground sm:text-5xl lg:text-7xl text-6xl">
+            <div className="relative min-h-[9rem] sm:min-h-[15rem] lg:min-h-[16rem]">
+              <h1 className="hero-crossfade-out absolute inset-0 max-w-3xl text-5xl font-bold leading-[1.05] text-primary-foreground sm:text-5xl lg:text-7xl">
                 Your Vision.<br />Our Craft.
               </h1>
-              <h1 className="hero-crossfade absolute inset-0 max-w-3xl font-bold leading-[1.05] text-primary-foreground opacity-0 sm:text-5xl lg:text-7xl text-6xl">
+              <h1 className="hero-crossfade absolute inset-0 max-w-3xl text-5xl font-bold leading-[1.05] text-primary-foreground opacity-0 sm:text-5xl lg:text-7xl">
                 Building The<br />Home You've<br />Always Wanted.
               </h1>
             </div>
-            <p className="mt-7 max-w-2xl text-lg font-medium leading-8 text-primary-foreground/90 drop-shadow-lg sm:text-xl">
+            <p className="mt-4 max-w-2xl text-lg font-medium leading-8 text-primary-foreground/90 drop-shadow-lg sm:mt-7 sm:text-xl">
               From the first swing of the hammer to the final coat of paint — TMD Remodeling builds homes you'll be proud of for years to come.
             </p>
+
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button asChild variant="hero" size="xl">
                 <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Schedule a Meeting <CalendarCheck /></a>

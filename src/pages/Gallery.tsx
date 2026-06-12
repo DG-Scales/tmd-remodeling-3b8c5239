@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, CalendarCheck, Mail, Menu, Phone, X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
@@ -55,6 +55,26 @@ const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    const onClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
+  }, [menuOpen]);
+
 
   const filtered =
     activeCategory === "All"
@@ -84,7 +104,7 @@ const Gallery = () => {
             <Link className="transition hover:text-accent" to="/gallery">Gallery</Link>
             <a className="transition hover:text-accent" href="mailto:tmdremodeling0227@gmail.com">Contact</a>
           </div>
-          <div className="flex items-center gap-3 md:hidden">
+          <div ref={menuRef} className="flex items-center gap-3 md:hidden">
             <Button asChild variant="subtle" size="sm">
               <Link to="/"><ArrowLeft className="h-4 w-4" /> Back</Link>
             </Button>
@@ -92,20 +112,22 @@ const Gallery = () => {
               className="rounded-md p-2 text-primary-foreground"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={menuOpen}
             >
               {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
-          </div>
-          {menuOpen && (
-            <div className="absolute right-5 top-full z-50 mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted md:hidden">
-              <div className="flex flex-col gap-3 text-sm font-medium text-foreground">
-                <Link className="transition hover:text-accent" to="/" onClick={() => setMenuOpen(false)}>Home</Link>
-                <Link className="transition hover:text-accent" to="/reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
-                <Link className="transition hover:text-accent" to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
-                <a className="transition hover:text-accent" href="mailto:tmdremodeling0227@gmail.com" onClick={() => setMenuOpen(false)}>Contact</a>
+            {menuOpen && (
+              <div className="absolute right-5 top-full z-50 mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted">
+                <div className="flex flex-col gap-3 text-sm font-medium text-foreground">
+                  <Link className="transition hover:text-accent" to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+                  <Link className="transition hover:text-accent" to="/reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
+                  <Link className="transition hover:text-accent" to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
+                  <a className="transition hover:text-accent" href="mailto:tmdremodeling0227@gmail.com" onClick={() => setMenuOpen(false)}>Contact</a>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
+
         </div>
       </header>
 
