@@ -74,7 +74,7 @@ const Index = () => {
             {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
           {menuOpen && (
-            <div className="absolute right-5 top-full mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted md:hidden">
+            <div className="absolute right-5 top-full z-50 mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted md:hidden">
               <div className="flex flex-col gap-3 text-sm font-medium text-foreground">
                 <a className="transition hover:text-accent" href="#services" onClick={() => setMenuOpen(false)}>Services</a>
                 <a className="transition hover:text-accent" href="#about" onClick={() => setMenuOpen(false)}>About</a>
