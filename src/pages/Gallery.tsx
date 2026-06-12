@@ -118,11 +118,12 @@ const Gallery = () => {
           </p>
         </div>
 
-        <div className="mb-10 -mx-5 px-5 sm:-mx-8 sm:px-8">
-          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="sticky top-[88px] z-30 mb-10 -mx-5 border-b border-border/60 bg-background/95 px-5 backdrop-blur supports-[backdrop-filter]:bg-background/80 sm:-mx-8 sm:top-[96px] sm:px-8">
+          <div className="flex gap-2 overflow-x-auto py-3 scrollbar-hide">
             {categories.map((cat) => (
               <button
                 key={cat}
+                type="button"
                 onClick={() => setActiveCategory(cat)}
                 className={cn(
                   "flex-shrink-0 rounded-full border px-4 py-2 text-sm font-semibold transition",
@@ -137,7 +138,7 @@ const Gallery = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid min-h-[60vh] grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 [content-visibility:auto]">
           {filtered.map((p) => (
             <figure key={p.title} className="group relative overflow-hidden rounded-lg border border-border bg-card shadow-soft transition hover:shadow-crafted">
               <div className="aspect-[4/3] overflow-hidden">
