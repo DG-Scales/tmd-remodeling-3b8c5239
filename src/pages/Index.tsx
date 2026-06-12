@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Bath, CalendarCheck, Check, Hammer, Home, Mail, MapPin, Menu, Phone, Ruler, ShieldCheck, Star, TreePine, X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
