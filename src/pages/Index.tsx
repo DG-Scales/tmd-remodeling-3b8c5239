@@ -74,7 +74,7 @@ const Index = () => {
           className="hero-crossfade absolute inset-0 h-full w-full object-cover opacity-0"
         />
         <div className="absolute inset-0 bg-hero-overlay" />
-        <nav className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
+        <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
           <a href="#top" className="flex items-center gap-3 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
             <img src={tmdLogo} alt="TMD Remodeling logo" className="h-24 w-auto object-contain drop-shadow-lg sm:h-28 lg:h-32" />
             <span className="hidden text-sm font-semibold uppercase tracking-[0.22em] text-primary-foreground sm:inline">TMD Remodeling</span>
@@ -86,25 +86,29 @@ const Index = () => {
             <Link className="transition hover:text-accent" to="/reviews">Reviews</Link>
             <a className="transition hover:text-accent" href="#contact">Contact</a>
           </div>
-          <button
-            className="rounded-md p-2 text-primary-foreground md:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-          {menuOpen && (
-            <div className="absolute right-5 top-full z-50 mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted md:hidden">
-              <div className="flex flex-col gap-3 text-sm font-medium text-foreground">
-                <a className="transition hover:text-accent" href="#services" onClick={() => setMenuOpen(false)}>Services</a>
-                <a className="transition hover:text-accent" href="#about" onClick={() => setMenuOpen(false)}>About</a>
-                <Link className="transition hover:text-accent" to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
-                <Link className="transition hover:text-accent" to="/reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
-                <a className="transition hover:text-accent" href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+          <div ref={menuRef} className="md:hidden">
+            <button
+              className="rounded-md p-2 text-primary-foreground"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
+            >
+              {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+            {menuOpen && (
+              <div className="absolute right-5 top-full z-50 mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted">
+                <div className="flex flex-col gap-3 text-sm font-medium text-foreground">
+                  <a className="transition hover:text-accent" href="#services" onClick={() => setMenuOpen(false)}>Services</a>
+                  <a className="transition hover:text-accent" href="#about" onClick={() => setMenuOpen(false)}>About</a>
+                  <Link className="transition hover:text-accent" to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
+                  <Link className="transition hover:text-accent" to="/reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
+                  <a className="transition hover:text-accent" href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+                </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </nav>
+
 
         <div id="top" className="relative z-10 mx-auto flex max-w-7xl flex-col justify-end px-5 pb-16 pt-24 sm:px-8 lg:min-h-[76vh] lg:pb-24">
           <div className="max-w-3xl reveal-up">
