@@ -110,22 +110,23 @@ const Index = () => {
         </nav>
 
 
-        <div id="top" className="relative z-10 mx-auto flex max-w-7xl flex-col justify-end px-5 pb-16 pt-24 sm:px-8 lg:min-h-[76vh] lg:pb-24">
+        <div id="top" className="relative z-10 mx-auto flex max-w-7xl flex-col justify-end px-5 pb-16 pt-12 sm:px-8 sm:pt-24 lg:min-h-[76vh] lg:pb-24">
           <div className="max-w-3xl reveal-up">
-            <p className="mb-5 inline-flex items-center gap-2 border-l-4 border-accent bg-accent/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-primary-foreground backdrop-blur">
+            <p className="mb-4 inline-flex items-center gap-2 border-l-4 border-accent bg-accent/10 px-4 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-primary-foreground backdrop-blur">
               <ShieldCheck className="h-4 w-4 text-accent" /> Massachusetts remodeling experts
             </p>
-            <div className="relative min-h-[11rem] sm:min-h-[15rem] lg:min-h-[16rem]">
-              <h1 className="hero-crossfade-out absolute inset-0 max-w-3xl font-bold leading-[1.05] text-primary-foreground sm:text-5xl lg:text-7xl text-6xl">
+            <div className="relative min-h-[9rem] sm:min-h-[15rem] lg:min-h-[16rem]">
+              <h1 className="hero-crossfade-out absolute inset-0 max-w-3xl text-5xl font-bold leading-[1.05] text-primary-foreground sm:text-5xl lg:text-7xl">
                 Your Vision.<br />Our Craft.
               </h1>
-              <h1 className="hero-crossfade absolute inset-0 max-w-3xl font-bold leading-[1.05] text-primary-foreground opacity-0 sm:text-5xl lg:text-7xl text-6xl">
+              <h1 className="hero-crossfade absolute inset-0 max-w-3xl text-5xl font-bold leading-[1.05] text-primary-foreground opacity-0 sm:text-5xl lg:text-7xl">
                 Building The<br />Home You've<br />Always Wanted.
               </h1>
             </div>
-            <p className="mt-7 max-w-2xl text-lg font-medium leading-8 text-primary-foreground/90 drop-shadow-lg sm:text-xl">
+            <p className="mt-4 max-w-2xl text-lg font-medium leading-8 text-primary-foreground/90 drop-shadow-lg sm:mt-7 sm:text-xl">
               From the first swing of the hammer to the final coat of paint — TMD Remodeling builds homes you'll be proud of for years to come.
             </p>
+
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <Button asChild variant="hero" size="xl">
                 <a href="https://cal.com/thomas-russo-11" target="_blank" rel="noreferrer">Schedule a Meeting <CalendarCheck /></a>
