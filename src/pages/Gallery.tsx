@@ -97,7 +97,7 @@ const Gallery = () => {
             </button>
           </div>
           {menuOpen && (
-            <div className="absolute right-5 top-full mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted md:hidden">
+            <div className="absolute right-5 top-full z-50 mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted md:hidden">
               <div className="flex flex-col gap-3 text-sm font-medium text-foreground">
                 <Link className="transition hover:text-accent" to="/" onClick={() => setMenuOpen(false)}>Home</Link>
                 <Link className="transition hover:text-accent" to="/reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
