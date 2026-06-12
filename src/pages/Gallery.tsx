@@ -76,6 +76,24 @@ const Gallery = () => {
       document.removeEventListener("mousedown", onClick);
     };
   }, [menuOpen]);
+  useEffect(() => {
+    if (!selectedImage) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedImage(null);
+    };
+    const onClick = (e: MouseEvent) => {
+      if (lightboxRef.current && !lightboxRef.current.contains(e.target as Node)) {
+        setSelectedImage(null);
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
+    };
+  }, [selectedImage]);
+
 
 
   const filtered =
