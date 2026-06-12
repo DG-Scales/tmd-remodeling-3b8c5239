@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, CalendarCheck, Mail, Phone } from "lucide-react";
+import { ArrowLeft, CalendarCheck, Mail, Menu, Phone, X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -54,6 +54,7 @@ const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const filtered =
     activeCategory === "All"
@@ -72,14 +73,39 @@ const Gallery = () => {
         <meta property="og:type" content="website" />
       </Helmet>
       <header className="border-b border-border bg-primary text-primary-foreground">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
+        <div className="relative mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
           <Link to="/" className="flex items-center gap-3">
             <img src={tmdLogo} alt="TMD Remodeling logo" className="h-14 w-auto object-contain drop-shadow-lg sm:h-16" />
             <span className="hidden text-sm font-semibold uppercase tracking-[0.22em] sm:inline">TMD Remodeling</span>
           </Link>
-          <Button asChild variant="subtle" size="sm">
-            <Link to="/"><ArrowLeft className="h-4 w-4" /> Back Home</Link>
-          </Button>
+          <div className="hidden items-center gap-6 text-sm font-medium text-primary-foreground/85 md:flex">
+            <Link className="transition hover:text-accent" to="/">Home</Link>
+            <Link className="transition hover:text-accent" to="/reviews">Reviews</Link>
+            <Link className="transition hover:text-accent" to="/gallery">Gallery</Link>
+            <a className="transition hover:text-accent" href="mailto:tmdremodeling0227@gmail.com">Contact</a>
+          </div>
+          <div className="flex items-center gap-3 md:hidden">
+            <Button asChild variant="subtle" size="sm">
+              <Link to="/"><ArrowLeft className="h-4 w-4" /> Back</Link>
+            </Button>
+            <button
+              className="rounded-md p-2 text-primary-foreground"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+            >
+              {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+          {menuOpen && (
+            <div className="absolute right-5 top-full mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted md:hidden">
+              <div className="flex flex-col gap-3 text-sm font-medium text-foreground">
+                <Link className="transition hover:text-accent" to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+                <Link className="transition hover:text-accent" to="/reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
+                <Link className="transition hover:text-accent" to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
+                <a className="transition hover:text-accent" href="mailto:tmdremodeling0227@gmail.com" onClick={() => setMenuOpen(false)}>Contact</a>
+              </div>
+            </div>
+          )}
         </div>
       </header>
 
