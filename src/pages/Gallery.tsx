@@ -55,7 +55,9 @@ const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<null | { src: string; title: string; category: string }>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const lightboxRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!menuOpen) return;
