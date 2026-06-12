@@ -29,6 +29,8 @@ const areas = ["Salem", "Revere", "Malden", "Everett", "Boston", "Marblehead", "
 
 
 const Index = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <main className="min-h-screen overflow-hidden bg-background text-foreground">
       <Helmet>
@@ -64,6 +66,24 @@ const Index = () => {
             <Link className="transition hover:text-accent" to="/reviews">Reviews</Link>
             <a className="transition hover:text-accent" href="#contact">Contact</a>
           </div>
+          <button
+            className="rounded-md p-2 text-primary-foreground md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+          {menuOpen && (
+            <div className="absolute right-5 top-full mt-2 w-48 rounded-lg border border-border bg-card p-4 shadow-crafted md:hidden">
+              <div className="flex flex-col gap-3 text-sm font-medium text-foreground">
+                <a className="transition hover:text-accent" href="#services" onClick={() => setMenuOpen(false)}>Services</a>
+                <a className="transition hover:text-accent" href="#about" onClick={() => setMenuOpen(false)}>About</a>
+                <Link className="transition hover:text-accent" to="/gallery" onClick={() => setMenuOpen(false)}>Gallery</Link>
+                <Link className="transition hover:text-accent" to="/reviews" onClick={() => setMenuOpen(false)}>Reviews</Link>
+                <a className="transition hover:text-accent" href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+              </div>
+            </div>
+          )}
         </nav>
 
         <div id="top" className="relative z-10 mx-auto flex max-w-7xl flex-col justify-end px-5 pb-16 pt-24 sm:px-8 lg:min-h-[76vh] lg:pb-24">
