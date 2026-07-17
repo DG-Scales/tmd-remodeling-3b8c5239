@@ -65,15 +65,16 @@ const Index = () => {
         <meta property="og:type" content="website" />
       </Helmet>
       <section className="relative min-h-[92vh] overflow-hidden">
-        <img
-          src={heroHome}
-          alt="Modern home exterior remodeled by TMD Remodeling"
-          className="absolute inset-0 h-full w-full object-cover motion-safe:animate-slow-pan"
-        />
-        <img
-          src={modernKitchen}
-          alt="Sleek modern kitchen renovation by TMD Remodeling"
-          className="hero-crossfade absolute inset-0 h-full w-full object-cover opacity-0"
+        <video
+          src={heroVideo.url}
+          poster={heroPoster.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-hero-overlay" />
         <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
