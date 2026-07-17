@@ -9,6 +9,8 @@ import bathroomImage from "@/assets/tmd/bathroom.jpg";
 import livingRoom from "@/assets/tmd/living-room.jpg";
 import carpentryImage from "@/assets/tmd/carpentry.jpg";
 import tmdLogo from "@/assets/tmd/tmd-logo.png";
+import heroVideo from "@/assets/tmd/tmd-hero.mp4.asset.json";
+import heroPoster from "@/assets/tmd/tmd-hero-poster.jpg.asset.json";
 
 const services = [
   { icon: Bath, title: "Kitchens & Bathrooms", text: "Sleek, functional updates with premium materials, smart layouts, and clean finish work." },
@@ -63,15 +65,16 @@ const Index = () => {
         <meta property="og:type" content="website" />
       </Helmet>
       <section className="relative min-h-[92vh] overflow-hidden">
-        <img
-          src={heroHome}
-          alt="Modern home exterior remodeled by TMD Remodeling"
-          className="absolute inset-0 h-full w-full object-cover motion-safe:animate-slow-pan"
-        />
-        <img
-          src={modernKitchen}
-          alt="Sleek modern kitchen renovation by TMD Remodeling"
-          className="hero-crossfade absolute inset-0 h-full w-full object-cover opacity-0"
+        <video
+          src={heroVideo.url}
+          poster={heroPoster.url}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-hero-overlay" />
         <nav className="relative z-50 mx-auto flex max-w-7xl items-center justify-between px-5 py-5 sm:px-8">
