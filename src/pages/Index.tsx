@@ -9,6 +9,8 @@ import bathroomImage from "@/assets/tmd/bathroom.jpg";
 import livingRoom from "@/assets/tmd/living-room.jpg";
 import carpentryImage from "@/assets/tmd/carpentry.jpg";
 import tmdLogo from "@/assets/tmd/tmd-logo.png";
+import heroVideo from "@/assets/tmd/tmd-hero.mp4.asset.json";
+import heroPoster from "@/assets/tmd/tmd-hero-poster.jpg.asset.json";
 
 const services = [
   { icon: Bath, title: "Kitchens & Bathrooms", text: "Sleek, functional updates with premium materials, smart layouts, and clean finish work." },
